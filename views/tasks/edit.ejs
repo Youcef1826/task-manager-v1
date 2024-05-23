@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit user account</title>
+</head>
+
+<body>
+
+    <section>
+        <h2>Edit task</h2>
+    
+        <form action="/tasks/<%= task._id %>" method="post">
+    
+            <label>Project</label><br>
+            <input type="text" name="project" value="<%= task.project %>">
+            <br>
+            <label>Title</label><br>
+            <input type="text" name="title" value="<%= task.title %>">
+            <br>
+            <label>Description</label><br>
+            <input type="text" name="description" value="<%= task.description %>">
+            <br>
+            <label>Deadline</label><br>
+            <input type="date" name="deadline" value="<%= task.deadline.toISOString().substring(0, 10) %>">
+            <br><br>
+            <input type="submit" value="Edit task">
+    
+        </form>
+        <br>
+        
+        <form action="/tasks/<%= task._id %>/delete" method="post" style="display: inline;">
+            <input type="submit" value="Delete task">
+        </form>
+
+        <br><br><br><br>
+        <button><a href="/tasks">Back to task manager</a></button>
+    </section>
+    
+
+</body>
+</html>
